@@ -49,6 +49,15 @@ vagrant up
 
 2. gvmd Database Password: Vu1nCh3ck3R
 
+3. Crontab is already configured to update Database Definitions everyday from 3 to 6 AM using the config below:
+
+```
+0 3 * * * sudo -u gvm greenbone-feed-sync --type GVMD_DATA
+0 4 * * * sudo -u gvm greenbone-feed-sync --type SCAP
+0 5 * * * sudo -u gvm greenbone-feed-sync --type CERT
+0 6 * * * sudo -u gvm greenbone-nvt-sync
+```
+
 ## Quick reference:
 
 1. How to stop/turn off:
