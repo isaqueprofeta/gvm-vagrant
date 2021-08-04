@@ -49,6 +49,7 @@ Vagrant.configure("2") do |config|
 
         gvm.vm.provision "shell", inline: <<-SHELL
             echo '----Download the GVM and NVT definitions---- '
+            sudo chown gvm.gvm /run/ospd/
             sudo -u gvm greenbone-feed-sync --type GVMD_DATA
             sudo -u gvm greenbone-feed-sync --type SCAP
             sudo -u gvm greenbone-feed-sync --type CERT
